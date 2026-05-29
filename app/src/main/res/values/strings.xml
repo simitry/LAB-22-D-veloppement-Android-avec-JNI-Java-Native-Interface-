@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JNIDemo</string>
+    <string name="logcat_hint">Logcat: filter with tag JNI_DEMO to see native C++ logs.</string>
+</resources>

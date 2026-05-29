@@ -1,0 +1,36 @@
+apply plugin: "com.android.application"
+
+android {
+    namespace "com.example.jnidemo"
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.example.jnidemo"
+        minSdk 24
+        targetSdk 36
+        versionCode 1
+        versionName "1.0"
+
+        /*
+         * CMake receives this project configuration and builds libnative-lib.so.
+         * The library is then packaged automatically inside the APK.
+         */
+        externalNativeBuild {
+            cmake {
+                cppFlags "-std=c++17 -Wall -Wextra"
+            }
+        }
+    }
+
+    /*
+     * Pin the locally installed NDK so the build is reproducible on this machine.
+     */
+    ndkVersion "25.1.8937393"
+
+    externalNativeBuild {
+        cmake {
+            path file("src/main/cpp/CMakeLists.txt")
+            version "3.22.1"
+        }
+    }
+}
